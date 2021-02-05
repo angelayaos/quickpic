@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quickpic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+    <script type="module" src="src/helpers.js"></script>
+    <script type="module" src="src/api.js"></script>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+</head>
+<body>
+    <!-- This is an example app structure, you can modify this as much as you choose --> 
+    <header class="banner">
+        <h1>Quickpic</h1>
+        <ul class="nav">
+            <li class="nav-item">
+                <img src='icons/home.png' id="home">
+            </li>
+            <li class="nav-item">
+                <img src='icons/my-profile.jpg' id="profileButton">
+            </li>
+            <li class="nav-item">
+                <img src='icons/logout.png' id="logoutButton">
+            </li>
+        </ul>
+    </header>
+    <main id="main" role="main">
+        <div id="loggedOut">
+            <div id=loggedOutContainer>
+                <h2>Login</h2>
+                <form id="loginForm" action="auth/login">
+                    <input type="text" id="username" name="username" placeholder="Username"><br>
+                    <input type="password" id="password" name="password" placeholder="Password"><br>
+                    <button id="signupButton">Register</button>
+                    <button id="loginButton">Login</button>
+                </form>
+            </div>
+        </div>
+        <div id="loggedIn"></div>
+        <div id="commentsModal" class="commentsModal">
+            <div id="modalContent" class="modalContent">
+                <div id="modalImage" class="modalImage"></div>
+                <div id="modalComments" class="modalComments">
+                    <div id="displayUser" class="userDiv"></div>
+                    <div id="displayComments" class="displayComments"></div>
+                    <div id="makeComment" class="makeComment">
+                        <input type="text" id="comment" name="comment" placeholder="Write a comment...">
+                        <button id="confirmComment">Comment</button>
+                    </div>
+                </div>
+                <span class="closeComments">&times;</span>
+            </div>
+        </div>
+        <div id="errorModal" class="errorModal">
+            <div id="errorModalContent" class="errorModalContent">
+                <span class="closeError">&times;</span>
+            </div>
+        </div>
+        <div id="likesModal" class="likesModal">
+            <div id="likesModalContent" class="likesModalContent">
+                <span class="closeLikes">&times;</span>
+            </div>
+        </div>
+        <div id="successModal" class="successModal">
+            <div id="successModalContent" class="successModalContent">
+                <span class="closeSuccess">&times;</span>
+            </div>
+        </div>
+        <div id="profile">
+            <div id="profileHeader" class="profileHeader">
+                <div id="userProfileName" class="userProfileName"></div>
+                <img src='icons/edit-profile.png' id="editProfileButton">
+                <img src='icons/follow.png' id="followButton" class="followButton" >
+                <img src='icons/add-post.png' id="addButton">
+            </div>
+            <div id="createPostModal" class="createPostModal">
+                <div id="postModalContent" class="postModalContent">
+                    <span class="closeCreatePost">&times;</span>
+                    <div class="createPost">Create Post</div><br>
+                    <form id="newPost" action="post">
+                        <input type="file" id="photo" name="photo" accept="image/*"/><br>
+                        <textarea form="newPost" name="description" id="description" placeholder="Write a description..."></textarea><br>
+                        <button id="postButton">Post</button>
+                    </form>
+                </div>
+            </div>
+            <div id="editProfileModal" class="editProfileModal">
+                <div id="editModalContent" class="editModalContent">
+                    <span class="closeUpdateProfile">&times;</span>
+                    <div class="updateProfile">Update Profile</div><br>
+                    <form id="updatingProfile" action="put/user">
+                        <input type="text" id="updateName" name="updateName" placeholder="Update your name"/><br>
+                        <input type="text" id="updateEmail" name="updateEmail" placeholder="Update your email"/><br>
+                        <input type="text" id="updatePassword" name="updatePassword" placeholder="Update your password"/><br>
+                        <button id="updateButton">Update</button>
+                    </form>
+                </div>
+            </div>
+            <div id="userStats"></div>
+            <div id="profilePosts"></div>
+            <div id="followingModal" class="followingModal">
+                <div id="followingModalContent" class="followingModalContent">
+                  <span class="closeFollowing">&times;</span>
+                </div>
+            </div>
+        </div>
+        <div id="signup">
+            <div id="signupContainer">
+                <h2>Sign Up</h2>
+                <form id="signupForm" action="auth/signup">
+                    <input type="text" id="signupUsername" name="username" placeholder="Username"><br>
+                    <input type="password" id="signupPassword" name="password" placeholder="Password"><br>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password"><br>
+                    <input type="email" id="signupEmail" name="email" placeholder="Email"><br>
+                    <input type="text" id="signupName" name="name" placeholder="Name"><br>
+                    <button id="submit">Submit</button>
+                    <button id="back">Back</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Quickpic</p>
+    </footer>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
